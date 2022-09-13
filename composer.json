@@ -1,0 +1,15 @@
+{
+    "name": "alex-cromatic/php-framework",
+    "authors": [
+        {
+            "name": "DobosAlexandru",
+            "email": "lxdobos@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "app\\" : "./"
+        }
+    },
+    "require": {}
+}
