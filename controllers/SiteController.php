@@ -3,25 +3,31 @@
 namespace app\controllers;
 
 use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
 
-class SiteController 
+class SiteController extends Controller
 {
     public function home()
     {
         $params = [
             'name' => "Alex"
         ];
-        return Application::$app->router->renderView('home',$params);
+        return $this->render('home',$params);
     }
 
 
     public function contact()
     {
-        return 'Show contact form';
+        return $this->render('contact');
     }
 
-    public function handleContact()
+    public function handleContact(Request $request)
     {
+        $body = $request->getBody();
+        echo '<pre>';
+        print_r($body);
+        echo '</pre>';
         return 'Handling submitted data from controller';
     }
 }
