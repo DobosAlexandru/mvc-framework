@@ -2,17 +2,22 @@
 
 <form action="" method="post">
     <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input type="text" name="name" class="form-control">
+        <label class="form-label">First Name</label>
+        <input type="text" name="firstname" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" name="lastname" class="form-control">
     </div>
     <div class="mb-3">
         <label class="form-label">Email</label>
-        <input type="text" name="email" class="form-control">
+        <input type="password" name="password" class="form-control">
         
     </div>
     <div class="mb-3">
-        <label class="form-label">Body</label>
-        <textarea name="body" class="form-control"></textarea>
+        <label class="form-label">Password</label>
+        <input type="password" name="email" class="form-control">
+        
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
