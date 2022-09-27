@@ -6,16 +6,28 @@ use app\core\Model;
 
 class RegisterModel extends Model
 {
+    /******
+     * Input fields from register view
+     */
+
     public string $firstname = '';
     public string $lastname = '';
     public string $email = '';
     public string $password = '';
     public string $confirmPassword = '';
 
+    /******
+     * Register user to DB
+     */
+
     public function register()
     {
         echo 'Creating new user';
     }
+
+    /******
+     * Rules foreach field from the form
+     */
 
     public function rules(): array
     {

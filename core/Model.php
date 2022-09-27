@@ -4,11 +4,19 @@ namespace app\core;
 
 abstract class Model
 {
+    /******
+     * Validation rules
+     */
+
     public const RULE_REQUIRED = 'required';
     public const RULE_EMAIL = 'email';
     public const RULE_MIN = 'min';
     public const RULE_MAX = 'max';
     public const RULE_MATCH = 'match';
+
+    /******
+     * Loading data from form
+     */
 
     public function loadData($data)
     {
@@ -20,9 +28,21 @@ abstract class Model
         }
     }
 
+    /******
+     * Abstract rules function. This function must be defined where extended!!!!
+     */
+
     abstract public function rules(): array;
 
+    /******
+     * Variable to store the errors
+     */
+
     public array $errors = [];
+
+    /******
+     * Validate the form
+     */
 
     public function validate()
     {
@@ -60,6 +80,10 @@ abstract class Model
         return empty($this->errors);
     }
 
+    /******
+     * Add error to errors array foreach field that doesn't meet the requirements for validation
+     */
+
     public function addError(string $attribute, string $rule, $params = [])
     {
         $message = $this->errorMessages()[$rule] ?? '';
@@ -70,6 +94,10 @@ abstract class Model
 
         $this->errors[$attribute][] = $message;
     }
+
+    /******
+     * Error messages foreach rule
+     */
 
     public function errorMessages()
     {
@@ -82,10 +110,18 @@ abstract class Model
         ];
     } 
 
+    /******
+     * Check if attribute has error
+     */
+
     public function hasError($attribute)
     {
         return $this->errors[$attribute] ?? false;
     }
+
+    /******
+     * Get the first error from the array
+     */
 
     public function getFirstError($attribute)
     {

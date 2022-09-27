@@ -6,13 +6,35 @@ use app\core\Model;
 
 class Field
 {
+    /******
+     * Types for input fields
+     */
+
     public const TYPE_TEXT = 'text';
     public const TYPE_PASSWORD = 'password';
     public const TYPE_NUMBER = 'number';
 
+    /******
+     * Type class property
+     */
+
     public string $type;
+
+    /******
+     * Core Model instance
+     */
+
     public Model $model;
+
+    /******
+     * Attribute class property
+     */
+
     public string $attribute;
+
+    /******
+     * Field class constructor
+     */
 
     public function __construct(Model $model, string $attribute)
     {
@@ -20,6 +42,10 @@ class Field
         $this->model = $model;
         $this->attribute = $attribute;
     }
+
+    /******
+     * Return the string representation of the current element
+     */
 
     public function __ToString()
     {
@@ -43,9 +69,23 @@ class Field
         $this->model->getFirstError($this->attribute));
     }
 
+    /******
+     * Set the type of field as password
+     */
+
     public function passwordField()
     {
         $this->type = self::TYPE_PASSWORD;
+        return $this;
+    }
+
+    /******
+     * Set the type of field as number
+     */
+
+    public function numberField()
+    {
+        $this->type = self::TYPE_NUMBER;
         return $this;
     }
 }
