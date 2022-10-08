@@ -5,29 +5,39 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
+use app\core\Response;
+use app\models\ContactForm;
 
 class SiteController extends Controller
 {
     public function home()
     {
-        $params = [
-            'name' => "Alex"
-        ];
-        return $this->render('home',$params);
+        return $this->render('_front/home',[
+            'name' => 'Alex',
+            'page' => [
+                'title' => 'Home'
+            ]
+        ]);
     }
 
 
-    public function contact()
+    public function contact(Request $request, Response $response)
     {
-        return $this->render('contact');
-    }
+        $contact =  new ContactForm;
 
-    public function handleContact(Request $request)
-    {
-        $body = $request->getBody();
-        echo '<pre>';
-        print_r($body);
-        echo '</pre>';
-        return 'Handling submitted data from controller';
+        if($request->isPost()){
+            $contact->loadData($request->getBody());
+            if($contact->validate() && $contact->send()){
+                $response->redirect('/contact');
+                Application::$app->session->setFlash('success', 'Thanks for contacting us');
+            } else {
+                $response->redirect('/contact');
+                Application::$app->session->setFlash('failed', 'Something went wrong');
+            }
+        }
+        return $this->render('_front/contact',[
+            'model' => $contact
+        ]);
     }
+    
 }
