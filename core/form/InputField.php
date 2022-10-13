@@ -20,6 +20,8 @@ class InputField extends BaseField
 
     public string $type;
 
+    
+
     /******
      * Field class constructor
      */
@@ -52,14 +54,10 @@ class InputField extends BaseField
         return $this;
     }
 
-    /******
-     * Render single line input
-     */
-
     public function renderInput(): string
     {
         return sprintf(
-            '<input type="%s" name="%s" value="%s" class=" %s">',
+            '<input type="%s" name="%s" value="%s" class="form-control %s">',
             $this->type,
             $this->attribute, 
             $this->model->{$this->attribute},

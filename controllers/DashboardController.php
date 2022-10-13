@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
+        $this->setLayout('admin');
         return $this->render('_admin/dashboard');
     }
 }

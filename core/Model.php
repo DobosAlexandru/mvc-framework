@@ -50,7 +50,6 @@ abstract class Model
      */
 
     public array $errors = [];
-
     /******
      * Validate the form
      */

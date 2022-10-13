@@ -1,9 +1,3 @@
-<?php
-
-use app\core\Application as App;
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

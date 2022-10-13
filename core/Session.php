@@ -4,15 +4,7 @@ namespace app\core;
 
 class Session
 {
-    /******
-     * Array key for flash messages
-     */
-
     protected const FLASH_KEY = 'flash_messages';
-
-    /******
-     * Session class constructor
-     */
 
     public function __construct()
     {
@@ -30,10 +22,6 @@ class Session
 
     }
 
-    /******
-     * Set flash message
-     */
-
     public function setFlash($key, $message)
     {
         $_SESSION[self::FLASH_KEY][$key] = [
@@ -42,36 +30,20 @@ class Session
         ];
     }
 
-    /******
-     * Get flash message from session
-     */
-
     public function getFlash($key)
     {
         return $_SESSION[self::FLASH_KEY][$key]['value'] ?? false;
     }
-
-    /******
-     * Set flash message
-     */
 
     public function set($key, $value)
     {
         $_SESSION[$key] = $value;
     }
 
-    /******
-     * Get session key
-     */
-
     public function get($key)
     {
         return $_SESSION[$key] ?? false;
     }
-
-    /******
-     * Remove session key
-     */
 
     public function remove($key)
     {

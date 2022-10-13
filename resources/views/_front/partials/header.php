@@ -1,4 +1,4 @@
-<section class="container bg-blue-800 shadow-md w-full py-4 mx-auto">
+<section class="container bg-blue-800 rounded-b-full shadow-md w-full py-4 mx-auto">
     <div class="flex justify-between items-center">
         <div class="text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor"
@@ -8,6 +8,6 @@
             </svg>
         </div>
 
-        <?php $this->include_file('nav/nav_menu') ?>
+        <?php $this->include_file('_front/nav/nav_menu') ?>
     </div>
 </section>

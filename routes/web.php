@@ -1,6 +1,7 @@
 <?php
 
 use app\controllers\SiteController;
+use app\controllers\ContactController;
 
 
 /*****************************
@@ -8,5 +9,11 @@ use app\controllers\SiteController;
  *****************************/
 
 $app->router->get('/', [SiteController::class, 'home']);
-$app->router->get('/contact', [SiteController::class, 'contact']);
-$app->router->post('/contact', [SiteController::class, 'contact']);
+$app->router->get('/about', [SiteController::class, 'about']);
+
+
+/*****************************
+ * Contact Routes
+ *****************************/
+$app->router->get('/contact', [ContactController::class, 'contact']);
+$app->router->post('/contact', [ContactController::class, 'contact']);

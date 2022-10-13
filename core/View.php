@@ -12,7 +12,6 @@ class View
     public string $meta_description = '';
     public string $og_title = '';
     public string $og_description = '';
-    
 
     /******
      * Render page with layout and view
@@ -88,5 +87,10 @@ class View
     public function requestIs($request)
     {
         return $_SERVER['REQUEST_URI'] == $request ? true : false;
+    }
+
+    public function sessionHas($attribute)
+    {
+        return Application::$app->session->getFlash($attribute) ?? false;
     }
 }

@@ -2980,6 +2980,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].store('skills', {
+  list: [{
+    lang: 'HTML',
+    progress: '80%'
+  }, {
+    lang: 'CSS',
+    progress: '80%'
+  }, {
+    lang: 'Tailwind',
+    progress: '70%'
+  }, {
+    lang: 'Javascript',
+    progress: '40%'
+  }, {
+    lang: 'AlpineJS',
+    progress: '50%'
+  }, {
+    lang: 'PHP',
+    progress: '70%'
+  }, {
+    lang: 'Laravel',
+    progress: '60%'
+  }, {
+    lang: 'Livewire',
+    progress: '40%'
+  }]
+});
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 
 /***/ }),

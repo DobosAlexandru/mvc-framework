@@ -13,31 +13,13 @@ class SiteController extends Controller
     public function home()
     {
         return $this->render('_front/home',[
-            'name' => 'Alex',
-            'page' => [
-                'title' => 'Home'
-            ]
+            'name' => 'Alex Doboș',
         ]);
     }
 
-
-    public function contact(Request $request, Response $response)
+    public function about()
     {
-        $contact =  new ContactForm;
-
-        if($request->isPost()){
-            $contact->loadData($request->getBody());
-            if($contact->validate() && $contact->send()){
-                $response->redirect('/contact');
-                Application::$app->session->setFlash('success', 'Thanks for contacting us');
-            } else {
-                $response->redirect('/contact');
-                Application::$app->session->setFlash('failed', 'Something went wrong');
-            }
-        }
-        return $this->render('_front/contact',[
-            'model' => $contact
-        ]);
+        return $this->render('_front/about');
     }
     
 }

@@ -46,10 +46,6 @@ class Request
         return $this->method() === 'post';
     }
 
-    /******
-     * Get input values either get or post, sanitize and store them in body array
-     */
-
     public function getBody()
     {
         $body = [];
